@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplicationApi.Data;
 using WebApplicationApi.Models;
 
-namespace WebApplicationApi.Repositories
+namespace WebApplicationApi.Repositories.Department
 {
     public class DepartmentRepository : IDepartmentRepository
     {

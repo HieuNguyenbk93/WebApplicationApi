@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApplicationApi.Repositories;
+using WebApplicationApi.Repositories.Department;
 
 namespace WebApplicationApi.Controllers
 {

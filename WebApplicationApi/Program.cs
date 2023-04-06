@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplicationApi.Data;
-using WebApplicationApi.Repositories;
+using WebApplicationApi.Repositories.Department;
+using WebApplicationApi.Repositories.DimensionRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IDimensionRepository, DimensionRepository>();
 
 var app = builder.Build();
 

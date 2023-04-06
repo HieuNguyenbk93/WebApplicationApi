@@ -1,6 +1,6 @@
 ﻿using WebApplicationApi.Models;
 
-namespace WebApplicationApi.Repositories
+namespace WebApplicationApi.Repositories.Department
 {
     public interface IDepartmentRepository
     {

@@ -44,6 +44,7 @@ namespace WebApplicationApi.Data
                 e.ToTable("Dimension");
                 e.HasKey(d => d.Id);
                 e.Property(d => d.Name).IsRequired().HasMaxLength(250);
+                e.HasIndex(d => d.Name).IsUnique();
             });
 
             modelBuilder.Entity<DimensionsIndices>(e =>
