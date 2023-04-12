@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApplicationApi.Repositories.Department;
+using System.Data.SqlTypes;
+using WebApplicationApi.Models;
+using WebApplicationApi.Repositories.DepartmentRepo;
 
 namespace WebApplicationApi.Controllers
 {
@@ -24,6 +26,22 @@ namespace WebApplicationApi.Controllers
             {
                 return BadRequest();
             }
+        }
+        [HttpPost]
+        public async Task<DepartmentModel> Create(DepartmentViewModel model)
+        {
+            return await _departmentRepository.CreateAsync(model);
+        }
+        [HttpPut]
+        public async Task<DepartmentModel> Update(int id,DepartmentViewModel model)
+        {
+            return await _departmentRepository.UpdateAsync(id, model);
+        }
+        [HttpDelete]
+        public async Task<bool> Delete(int id)
+        {
+            await _departmentRepository.DeleteAsync(id);
+            return true;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace WebApplicationApi.Helpers
         public ApplicationMapper()
         {
             CreateMap<Department, DepartmentModel>().ReverseMap();
-
+            CreateMap<Department, DepartmentViewModel>().ReverseMap();
             CreateMap<DimensionModel, Dimension>().ReverseMap();
             CreateMap<DimensionViewModel, Dimension>().ReverseMap();
         }

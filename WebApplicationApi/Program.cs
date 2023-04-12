@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplicationApi.Data;
-using WebApplicationApi.Repositories.Department;
+using WebApplicationApi.Helpers;
+using WebApplicationApi.Repositories.DepartmentRepo;
 using WebApplicationApi.Repositories.DimensionRepo;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware(typeof(GlobalErrorHandlingMiddleware));
 app.UseAuthorization();
 
 app.MapControllers();

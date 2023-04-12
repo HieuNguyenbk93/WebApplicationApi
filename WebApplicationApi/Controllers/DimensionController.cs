@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebApplicationApi.Models;
-using WebApplicationApi.Repositories.Department;
 using WebApplicationApi.Repositories.DimensionRepo;
 
 namespace WebApplicationApi.Controllers
