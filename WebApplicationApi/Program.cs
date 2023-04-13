@@ -1,9 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using NLog;
+using NLog.Web;
 using WebApplicationApi.Data;
 using WebApplicationApi.Helpers;
 using WebApplicationApi.Repositories.DepartmentRepo;
 using WebApplicationApi.Repositories.DimensionRepo;
 
+var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
