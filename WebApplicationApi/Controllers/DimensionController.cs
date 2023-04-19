@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebApplicationApi.Models;
@@ -15,7 +16,7 @@ namespace WebApplicationApi.Controllers
         {
             _dimensionRepository = dimensionRepository;
         }
-        [HttpGet]
+        [HttpGet, Authorize]
         public async Task<IActionResult> GetAllAsync(int? pageSize, int? pageIndex, string? name)
         {
             try
