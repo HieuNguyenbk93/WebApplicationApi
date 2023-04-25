@@ -7,8 +7,10 @@ using System.Text;
 using WebApplicationApi.Data;
 using WebApplicationApi.Helpers;
 using WebApplicationApi.Repositories.AccountRepo;
+using WebApplicationApi.Repositories.ClaimRepository;
 using WebApplicationApi.Repositories.DepartmentRepo;
 using WebApplicationApi.Repositories.DimensionRepo;
+using WebApplicationApi.Repositories.RoleRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,6 +57,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
     options.Password.RequiredLength = 6;
+    options.User.RequireUniqueEmail = true;
 });
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
@@ -66,6 +69,8 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IDimensionRepository, DimensionRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IClaimRepository, ClaimRepository>();
 
 builder.Services.AddAuthentication(options =>
 {

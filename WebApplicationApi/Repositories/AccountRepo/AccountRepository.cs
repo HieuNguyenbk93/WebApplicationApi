@@ -30,8 +30,13 @@ namespace WebApplicationApi.Repositories.AccountRepo
             var authClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, model.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
+            //var roleClaims = new ClaimsIdentity(new[]
+            //{
+            //    new Claim("UserName", model.UserName),
+            //    new Claim("Email", "@gmail")
+            //});
             var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
             var token = new JwtSecurityToken(
                 issuer: configuration["JWT:ValidIssuer"],
